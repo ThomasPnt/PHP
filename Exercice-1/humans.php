@@ -9,7 +9,12 @@
 <body>
   <h1>Bonjour
   <?php
-  echo $_GET['nom'];
+    echo $_GET['nom'];
+    $nom = 'Thomas';
+    $age = 21 ;
+    $faim = "Non j'ai mangé une frangipane";
+    $couleur_yeux = 'Vert';
+    $famille = ['Valentine', 'Tristan' , 'Christine','Jean-Luc']
   ?>
   </h1>
 </body>
