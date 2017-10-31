@@ -59,12 +59,11 @@
   $age = $_POST['Age'];
   $sexe = $_POST['Femme'];
 
-  if($age => 21 AND $age =< 40 AND $sexe = true){
+  if($age >= 21 AND $age <= 40 AND $sexe == true){
     echo "Bonjour, bienvenue parmi nous!";
-  } else {
-    echo "Désolé, vous ne remplissez pas les critères de sélection.";
-  }
-
+  } //else {
+  //   echo "Désolé, vous ne remplissez pas les critères de sélection.";
+  // }
   ?>
 </body>
 </html>
