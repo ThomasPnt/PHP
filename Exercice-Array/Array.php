@@ -23,8 +23,11 @@
     'foot' => false,
     'age'=> 21,
     'hobbies' => ['sport','code'],
-    'papa' => $papa //a finir! 
+    'papa' => $papa //a finir!
   ];
+
+  array_push($moi['hobbies'],"Taxidermie");
+  $moi['nom'] = "Dieudonné";
 
   $papa = [
     'prénom' => 'Jean-Luc',
@@ -38,7 +41,50 @@
   print_r($moi);
   echo '</pre>';
 
+  $resultPapa = count($papa['hobbies']);
+  print_r($resultPapa);
 
+  echo "</br>";
+
+  $resultMoi = count($moi['hobbies']);
+  print_r($resultMoi);
+
+  echo "</br>";
+
+  $add = $resultPapa + $resultMoi;
+  echo $add;
+
+  $toi = [
+    'prénom'=> 'Manon',
+    'nom' => 'Bréda',
+    'foot' => false ,
+    'age' => 20 ,
+    'hobbies' => ['musique','série']
+  ];
+
+  $enfant1 = array_intersect($moi,$toi);
+  echo'<pre>';
+  print_r($enfant1);
+  echo'</pre>';
+
+  echo"</br>";
+
+  $enfant2 = array_merge($moi,$toi);
+  echo'<pre>';
+  print_r($enfant2);
+  echo'</pre>';
+
+  $webDev = [
+    'frontend' => ['xhtml','CSS', 'Javascript','Flash'],
+    'backend' => ['Ruby on Rails' , 'Javascript']
+  ];
+
+  unset($webDev['frontend'][3]);
+  $webDev['frontend'][0] = 'html';
+
+  echo'<pre>';
+  print_r($webDev);
+  echo'</pre>';
    ?>
 </body>
 </html>
