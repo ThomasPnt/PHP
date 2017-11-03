@@ -27,6 +27,40 @@
     }
   };
 
+  $ligne = 1;
+  while ($ligne <= 120){
+    echo $ligne ;
+    $ligne++;
+  }
+
+  for ($ligne=1; $ligne <= 120 ; $ligne++) {
+    echo $ligne;
+  };
+
+  echo "</br>";
+
+  $classe = ['Steve','Nicolas','Axel','Marvin','Thomas'];
+  for ($name = 0; $name < count($classe) ; $name++) {
+    echo 'Son nom est '. $classe[$name] . '</br>';
+  };
+
+  $land = ['Belgique','France','Espagne','Italie','Allemagne','Pays-Bas','Ukraine','Japon','Angleterre','Grèce'];
+  $keyArr = [];
+  $a = [];
+    foreach ($land as $key => $pays) {
+      $keyArr[]= strtoupper(substr($pays,0,2));
+    };
+
+  for($i=0;$i<count($land);$i++){
+      $a[$keyArr[$i]] = $land[$i];
+  };
+
+  echo "<select>";
+    foreach ($a as $key => $value) {
+      echo "<option value = ". $value .' > '. $key.'</option>';
+    };
+  echo "</select>";
+
    ?>
 </body>
 </html>
