@@ -17,17 +17,27 @@
   $film = ['Thor','Thor 2 ', 'Thor 3'];
   echo $film[2];
 
-
   $moi = [
     'prénom' => 'Thomas',
     'nom' => 'Point',
     'foot' => false,
-    'age'=> 21
+    'age'=> 21,
+    'hobbies' => ['sport','code'],
+    'papa' => $papa //a finir! 
   ];
 
-  echo $moi['prénom'];
+  $papa = [
+    'prénom' => 'Jean-Luc',
+    'nom' => 'Point',
+    'foot' => true,
+    'age'=> 60,
+    'hobbies' => ['lecture','marche']
+  ];
 
-  
+  echo '<pre>';
+  print_r($moi);
+  echo '</pre>';
+
 
    ?>
 </body>
