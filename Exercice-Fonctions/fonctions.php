@@ -8,11 +8,7 @@
 </head>
 <body>
   <?php
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> master
   function nom($nom){
     return ucfirst($nom);
   };
@@ -34,7 +30,6 @@
   echo "<hr>";
 
   function dromadaire($input){
-<<<<<<< HEAD
     $newInput = ucwords($input);
     return preg_replace('/[^A-Z]/', '', $newInput);
   };
@@ -105,14 +100,12 @@
   };
 
   wallo();
-=======
+
     return ucwords($input);
   };
   echo dromadaire("jeune homme pauvre");
   echo "<hr>";
 
-
->>>>>>> master
    ?>
 </body>
 </html>
