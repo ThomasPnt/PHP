@@ -19,18 +19,34 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$resultat = $bdd->query("SELECT * FROM Ville");
-
-$donnees = $resultat->fetch();
-echo '<select>';
-while ($donnees =$resultat->fetch()) {
-  echo "<option value=''>";
-  echo $donnees['Ville'];
-  echo "</option>";
-}
-echo '</select>';
+$resultat = $bdd->query("SELECT * FROM cities");
 
 
+// foreach ($resultat as $donnees => $ville) {
+//   echo $ville['Ville'];
+// }
+
+// define('bleu' , $donnees = $resultat->fetch());
+
+ // while($donnees = $resultat->fetch()){
+ //   echo $donnees['Ville'];
+ // };
+
+ // print_r($donnees);
+
+// echo '<select>';
+//
+// function selectVille($resultat){
+// while ($donnees =$resultat->fetch()) {
+//   echo "<option value=''>";
+//   echo $donnees['Ville'];
+//   echo "</option>";
+// }
+// echo '</select>';
+// };
+//
+// selectVille($resultat);
+//
 
 
 Class Form {
@@ -39,7 +55,7 @@ Class Form {
   public $select;
   public $button;
   public $textArea;
-  public $values;
+  public $value;
 
   public function create($action)
   {
@@ -49,13 +65,20 @@ Class Form {
   {
     echo "<input type='$input'>";
   }
-  public function select()
+  public function select($resultat)
   {
-    echo "<select></select>";
+    echo "<select>";
+    while($donnees = $resultat->fetch() ) {
+      echo "<option value=''>";
+      echo $donnees['Ville'];
+      echo "</option>";
+      echo "test";
+    }
+    echo "</select>";
   }
-  public function button($button)
+  public function button($button,$value)
   {
-    echo "<button type='$button'></button>";
+    echo "<button type='$button'>$value</button>";
   }
   public function textArea()
   {
@@ -64,11 +87,11 @@ Class Form {
 }
 
 $form = new Form;
-$form->create('index.php');
+$form->create('Step-one.php');
 $form->input('text');
-$form->select();
-$form->button('Submit');
-$form->button('Radio');
+$form->select($resultat);
+$form->button('Submit','Valider');
+$form->button('Radio','Euh');
 $form->textArea();
 $form->input('checkbox');
 ?>
