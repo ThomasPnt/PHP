@@ -22,33 +22,6 @@ catch(Exception $e)
 $resultat = $bdd->query("SELECT * FROM cities");
 
 
-// foreach ($resultat as $donnees => $ville) {
-//   echo $ville['Ville'];
-// }
-
-// define('bleu' , $donnees = $resultat->fetch());
-
- // while($donnees = $resultat->fetch()){
- //   echo $donnees['Ville'];
- // };
-
- // print_r($donnees);
-
-// echo '<select>';
-//
-// function selectVille($resultat){
-// while ($donnees =$resultat->fetch()) {
-//   echo "<option value=''>";
-//   echo $donnees['Ville'];
-//   echo "</option>";
-// }
-// echo '</select>';
-// };
-//
-// selectVille($resultat);
-//
-
-
 Class Form {
   public $action;
   public $input;
@@ -91,7 +64,7 @@ $form->create('Step-one.php');
 $form->input('text');
 $form->select($resultat);
 $form->button('Submit','Valider');
-$form->button('Radio','Euh');
+$form->button('Radio','Clik');
 $form->textArea();
 $form->input('checkbox');
 ?>
