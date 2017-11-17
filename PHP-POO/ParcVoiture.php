@@ -7,33 +7,62 @@ Class Voiture{
   public $km;
   private $model;
   private $marque;
-  public $couleur;
-  public $poid;
+  private $couleur;
+  private $poid;
   private $pays;
 
   public function __construct($model,$poid,$pays,$km,$circulation){
-    $this->model($model);
-    $this->poid($poid);
-    $this->from($pays);
-    $this->km($km);
-    $this->age($circulation);
+    $this->model = $model;
+    $this->poid = $poid;
+    $this->pays = $pays;
+    $this->km = $km;
+    $this->circulation = $circulation;
   }
-  private function model($model){
-    if($model === 'Audi'){
+
+  public function getModel(){
+    if($this->model === 'Audi'){
       echo "RESERVED";
     } else {
       echo "FREE";
     }
   }
-  private function poid($poid){
-    if($poid > 3.5){
+
+  public function drive(){
+    $this->km += 100000;
+    return $this->km;
+  }
+
+  public function getCirculation()
+  {
+    $temps = date('Y');
+    $age = $temps - $this->circulation;
+    return $age . "ANS";
+  }
+
+
+  public function getKm()
+  {
+    if($this->km < 100000){
+      echo "LOW";
+    } elseif ($this->km >=100000 AND $this->km < 200000) {
+      echo "MIDDLE";
+    } else {
+      echo "HIGH";
+    }
+  }
+
+  public function getPoid()
+  {
+    if($this->poid > 3.5){
       echo "UTILITAIRE";
     }  else {
       echo "COMMERCIAL";
     }
   }
-  private function from($pays){
-    switch ($pays) {
+
+  public function getPays()
+  {
+    switch ($this->pays) {
       case 'BE':
         echo "FROM BELGIUM";
         break;
@@ -48,29 +77,27 @@ Class Voiture{
         break;
     }
   }
-  public function km($km){
-    if($km < 100.000){
-      echo "LOW";
-    } elseif ($km >=100.000 AND $km < 200.000) {
-      echo "MIDDLE";
-    } else {
-      echo "HIGH";
-    }
-  }
-  private function age($circulation){
-    $temps = date('Y');
-    $age = $temps - $circulation;
-    echo $age . "ANS";
-  }
-  public function drive($km){
-    echo $km += 100.000;
-  }
 }
 
-$Audi = new Voiture('Audi', 3.7,'BE',50.000, 2011); echo '</br>';
-$Dacia = new Voiture('Dacia',5.4,'FR',12.000,2016); echo '</br>';
+$Audi = new Voiture('Audi', 3.7,'BE',50000, 2011); echo '<hr>';
+$Dacia = new Voiture('Dacia',5.4,'FR',12000,2016); echo '<hr>';
+$Mazda = new Voiture('Mazda',0.9,'JA',110000,2009); echo '<hr>';
 
-$Audi->drive($Audi->km);
-$Audi->km($Audi->km);
+$voitures = [$Audi,$Dacia,$Mazda];
+foreach ($voitures as $voiture) {?>
+  <table>
+    <tr>
+      <td><?php echo $voiture->getModel() ?></td>
+      <td><?php echo $voiture->getPoid() ?></td>
+      <td><?php echo $voiture->getPays() ?></td>
+      <td><?php echo $voiture->getKm() ?></td>
+      <td><?php echo $voiture->getCirculation() ?></td>
+    </tr>
+  </table>
+<?php }
 
- ?>
+echo $Audi->drive(); echo '<hr>';
+echo $Audi->getKm();
+
+
+  ?>
