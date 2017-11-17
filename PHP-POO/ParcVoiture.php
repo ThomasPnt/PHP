@@ -48,7 +48,7 @@ Class Voiture{
         break;
     }
   }
-  private function km($km){
+  public function km($km){
     if($km < 100.000){
       echo "LOW";
     } elseif ($km >=100.000 AND $km < 200.000) {
@@ -62,16 +62,15 @@ Class Voiture{
     $age = $temps - $circulation;
     echo $age . "ANS";
   }
-  public function drive(){
-    echo $this->km += 100.000;
+  public function drive($km){
+    echo $km += 100.000;
   }
 }
 
 $Audi = new Voiture('Audi', 3.7,'BE',50.000, 2011); echo '</br>';
 $Dacia = new Voiture('Dacia',5.4,'FR',12.000,2016); echo '</br>';
 
-echo $Audi->drive(50.000);
-
-
+$Audi->drive($Audi->km);
+$Audi->km($Audi->km);
 
  ?>
